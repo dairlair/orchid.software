@@ -90,10 +90,10 @@ composer update orchid/platform --with-dependencies
 > **Note.** You can also update all your dependencies listed in the `composer.json` file by running `composer update`.
 
 
-After updating to a new release, you should be sure to update JavaScript and CSS assets using `orchid:publish` and clear any cached views with `view:clear`. It will ensure the newly-updated version is using the latest versions.
+After updating to a new release, you should be sure to update JavaScript and CSS assets using `vendor:publish` and clear any cached views with `view:clear`. It will ensure the newly-updated version is using the latest versions.
 
 ```bash
-php artisan orchid:publish
+php artisan vendor:publish
 php artisan view:clear
 ```
 
@@ -104,7 +104,7 @@ To ensure assets are updated when a new version is downloaded, you may add a Com
 ```json
 "scripts": {
     "post-update-cmd": [
-      "@php artisan orchid:publish --ansi"
+      "@php artisan vendor:publish --tag=laravel-assets --ansi --force"
   ]
 }
 ```
